@@ -1,5 +1,4 @@
 name: Push-to-EC2
-
 # Trigger deployment only on push to main branch
 on:
   push:
@@ -12,6 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+      - name: Checkout the files
+        uses: actions/checkout@v2
+        
       - name: Deploy to Server 1
         uses: easingthemes/ssh-deploy@main
         env:
